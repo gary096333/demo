@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gary.springboot.mapper.BorrowMapper">
+
+    
+    <select id="list" resultType="com.gary.springboot.entity.Borrow">
+        select *from borrow order by id desc
+
+    </select>
+
+
+
+    <select id="listByCondition" resultType="com.gary.springboot.entity.Borrow">
+        select * from borrow<!--模糊查詢，動態:假如前端沒輸入值，會執行查詢全部數據。-->
+        <where>
+            <if test="bookName != null and bookName !=''">
+                book_name like concat('%',#{bookName},'%')
+            </if>
+            <if test="bookNo != null and bookNo !=''">
+                and book_no = #{bookNo}
+            </if>
+            <if test="userName != null and userName !=''">
+                 and user_name like concat('%',#{userName},'%')
+            </if>
+        </where>
+        order by id desc          <!--         根據id遞減排序(新的資料在上面)-->
+
+    </select>
+
+
+    <!--Post新增-->
+    <insert id="save">
+        insert into borrow(book_name,book_no,user_no,user_name,user_phone,score,days,return_date)
+        values(#{bookName},#{bookNo},#{userNo},#{userName},#{userPhone},#{score},#{days},#{returnDate})
+    </insert>
+
+    <!--修改-->
+    <select id="getById" resultType="com.gary.springboot.entity.Borrow">
+        select * from borrow where id=#{id}
+    </select>
+
+
+    <!--修改-->
+    <update id="updateById">
+        update borrow set book_name=#{bookName}, book_no=#{bookNo}, user_no=#{userNo},user_name=#{userName},
+                          user_phone=#{userPhone},score=#{score},updatetime = #{updatetime},status=#{status},days=#{days},return_date=#{returnDate} where id=#{id}
+    </update>
+
+    <!--刪除-->
+    <delete id="deleteById">
+        delete from borrow where id=#{id}
+    </delete>
+
+
+
+    
+
+
+
+
+    <!--還書後狀態更新-->
+    <update id="updateStatus">
+        update borrow set status = #{status} where id=#{id}
+    </update>
+
+
+    
+    <select id="listReturByCondition" resultType="com.gary.springboot.entity.Retur">
+        select * from retur<!--模糊查詢，動態:假如前端沒輸入值，會執行查詢全部數據。-->
+        <where>
+            <if test="bookName != null and bookName !=''">
+                book_name like concat('%',#{bookName},'%')
+            </if>
+            <if test="bookNo != null and bookNo !=''">
+                and book_no = #{bookNo}
+            </if>
+            <if test="userName != null and userName !=''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+        </where>
+        order by id desc          <!--         根據id遞減排序(新的資料在上面)-->
+
+    </select>
+
+
+    <!--Post新增-->
+    <insert id="saveRetur">
+        insert into retur(book_name,book_no,user_no,user_name,user_phone,score,days,return_date,real_date,status)
+        values(#{bookName},#{bookNo},#{userNo},#{userName},#{userPhone},#{score},#{days},#{returnDate},#{realDate},#{status})
+    </insert>
+
+    <!--刪除-->
+    <delete id="deleteReturById">
+        delete from retur where id=#{id}
+    </delete>
+
+
+   
+
+
+
+
+</mapper>
