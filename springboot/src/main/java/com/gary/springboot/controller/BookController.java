@@ -116,10 +116,10 @@ public class BookController {
     public void download(@PathVariable String flag, @RequestParam(required = false) String play,
             HttpServletResponse response) {
         OutputStream os;
-        // 根據BASE_FILE_PATH 獲取路徑下的所有文件
+        // 根據BASE_FILE_PATH 獲取路徑下的所有文件名
         List<String> fileNames = FileUtil.listFileNames(BASE_FILE_PATH);
 
-        // 取出文件名稱(根據與flag進行對比，如當前文件夾名稱所對應的flag是一樣的)
+        // 取出文件名稱(檢查`name` 是否包含 `flag`(時間戳)，只有包含 `flag` 的字符串才會通過這個篩選條件，並保留在流中)
         // 1714297244119_下載 (2).jpg(fileName)
         String fileName = fileNames.stream().filter(name -> name.contains(flag)).findAny().orElse("");
 

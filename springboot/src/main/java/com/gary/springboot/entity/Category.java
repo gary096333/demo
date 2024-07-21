@@ -13,10 +13,10 @@ public class Category {
     private String name;
     private String remark;
     private Integer pid;
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private LocalDate createtime;
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private LocalDate updatetime;
 
-    private List<Category> children; //樹形數據，必須在 row 中包含 children 字段
+    private List<Category> children; // 樹形數據，必須在 row 中包含 children 字段(數據庫無此字段)
 }
