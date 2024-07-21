@@ -20,17 +20,17 @@
 
     <el-table :data="tableData" stripe row-key="id">
       <el-table-column prop="id" label="編號" align="center" width="50px"></el-table-column>
-      <el-table-column prop="bookName" label="圖書名稱"></el-table-column>
-      <el-table-column prop="bookNo" label="圖書標準碼"></el-table-column>
-      <el-table-column prop="userNo" label="會員碼"></el-table-column>
-      <el-table-column prop="userName" label="用戶名稱"></el-table-column>
-      <el-table-column prop="userPhone" label="用戶聯繫方式"></el-table-column>
-      <el-table-column prop="score" label="所用積分"></el-table-column>
+      <el-table-column prop="bookName" label="圖書名稱" align="center"></el-table-column>
+      <el-table-column prop="bookNo" label="圖書標準碼" width="90px" ></el-table-column>
+      <el-table-column prop="userNo" label="會員碼" align="center"></el-table-column>
+      <el-table-column prop="userName" label="用戶名稱" width="60" align="center"></el-table-column>
+      <el-table-column prop="userPhone" label="用戶聯繫方式" width="105" align="center"  ></el-table-column>
+      <el-table-column prop="score" label="所用積分" width="60" align="center"></el-table-column>
       <el-table-column prop="status" label="借出狀態"></el-table-column>
-      <el-table-column prop="days" label="借出天數"></el-table-column>
+      <el-table-column prop="days" label="借出天數" width="60" align="center"></el-table-column>
       <el-table-column prop="createtime" label="借出日期" width="90px"></el-table-column>
       <el-table-column prop="returnDate" label="歸還日期"></el-table-column>
-      <el-table-column prop="realDate" label="實際歸還日期"></el-table-column>
+      <el-table-column prop="realDate" label="實際歸還日期"  align="center"></el-table-column>
 
       <!--          點擊編輯按鈕，根據id跳轉到新的頁面-->
       <!--          根據id查詢，獲取id中資料-->

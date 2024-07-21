@@ -19,7 +19,7 @@
     <el-table :data="tableData" stripe row-key="id"> <!--    default-expand-all 樹狀資料默認展開-->
       <el-table-column prop="id" label="編號" align="center" width="50px"></el-table-column>
       <el-table-column prop="name" label="圖書名稱"></el-table-column>
-      <el-table-column prop="description" label="描述" width="150px">
+      <el-table-column prop="description" label="描述"  align="center" width="150px">
         <template #default="scope">
           <el-tooltip class="item" effect="light" :content="scope.row.description || '無描述'" placement="top">
             <div v-if="scope.row.description && scope.row.description.length < 10">{{ scope.row.description }}</div>
@@ -33,9 +33,9 @@
       <el-table-column prop="publisher" label="出版社"></el-table-column>
       <el-table-column prop="category" label="分類" width="60px"></el-table-column>
       <el-table-column prop="bookNo" label="標準碼"></el-table-column>
-      <el-table-column prop="score" label="借書積分"></el-table-column>
-      <el-table-column prop="nums" label="數量"></el-table-column>
-      <el-table-column prop="cover" label="封面">
+      <el-table-column prop="score" label="借書積分"  align="center"></el-table-column>
+      <el-table-column prop="nums" label="數量"  align="center"></el-table-column>
+      <el-table-column prop="cover" label="封面"  align="center">
         <template v-slot="scope">
           <!--          :preview-src-list 圖片預覽-->
           <el-image :src="scope.row.cover" :preview-src-list="[scope.row.cover]"></el-image>

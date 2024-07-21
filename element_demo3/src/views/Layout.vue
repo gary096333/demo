@@ -10,7 +10,7 @@
       </div>
 
 <!--      右上角登出位置(顯示登入後之帳號名稱)-->
-      <!--       {{user.username}}會顯示登入後之帳號(username)名稱-->
+      <!--       {{admin.username}}會顯示登入後之帳號(username)名稱-->
       <div style="flex: 1; text-align: right; padding-right: 20px">
         <el-dropdown size="medium">
           <!--          style="cursor: pointer" 鼠標變小手形狀-->

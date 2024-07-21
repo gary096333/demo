@@ -220,6 +220,7 @@ export default {
 
     // 點擊添加二級分類，彈出視窗
     // 將當前行的id作為二級分類的pid(在pid中輸入父級的id，成為子級)
+    //子級pid會等於父級id
     handleAdd(row) {
       this.pid = row.id
       this.dialogFormVisible = true

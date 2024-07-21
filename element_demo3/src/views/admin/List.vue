@@ -15,7 +15,7 @@
     <el-table  :data="tableData"  stripe >     <!--tableData是數組-->
       <el-table-column prop="id" label="編號" width="80" align="center" ></el-table-column>
       <el-table-column prop="username" label="用戶名" width="80"  ></el-table-column>
-      <el-table-column prop="phone" label="手機" width="100"></el-table-column>
+      <el-table-column prop="phone" label="手機"  width="100" align="center"></el-table-column>
       <el-table-column prop="email" label="信箱"  align="center"></el-table-column>
       <el-table-column prop="createtime" label="創建時間" width="100"></el-table-column>
       <el-table-column prop="updatetime" label="更新時間" width="100"></el-table-column>
@@ -61,7 +61,7 @@
           <!--         修改密碼-->
 <!--          style="margin-left: px"  間距-->
 <!--          (scope.row)-->
-            <el-button style="margin-left: 5px" type="warning" @click="handleChangePass(scope.row)">修改密碼</el-button>
+            <el-button style="margin-left: 5px" :disabled="scope.row.username != admin.username"  type="warning" @click="handleChangePass(scope.row)">修改密碼</el-button>
 
 
         </template>
@@ -235,6 +235,7 @@ export default {
                 this.dialogFormVisible=false //彈窗關閉
 
               }
+              
 
               }
             else{
@@ -251,7 +252,7 @@ export default {
     changeStatus(row){ //row包含更改後的信息
 
       //無法禁用自己的帳戶
-      //判斷目前登入的帳戶是當前帳戶，且status為false
+      //判斷目前登入的帳戶是當前帳戶，且當status為false(被禁用)
       if(this.admin.id === row.id && !row.status){
         row.status =true
         this.$notify.warning('無法禁用自己的帳戶')

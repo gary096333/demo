@@ -8,6 +8,7 @@ import router from "@/router";
 
 //相當於new axios， request是axios的對象
 const request = axios.create({
+
     baseURL: 'http://54.199.152.2:9091/api', //後端前綴有加上/api(class WebConfig)，應路由保持一致
     timeout: 10000
 })

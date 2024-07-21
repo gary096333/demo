@@ -1,7 +1,7 @@
 <template>
   <!--  margin: 100px auto 上下100px 左右置中-->
   <!--  overflow: hidden 頁面太大變有卷軸，把超過部分隱藏，卷軸頁面消失-->
-  <!--  position: relative 記得加上相對位置，因cover有設置根據相對位置的鴂對位置 position: absolute -->
+  <!--  position: relative 記得加上相對位置，因cover有設置根據相對位置的絕對位置 position: absolute -->
   <div style="height: 100vh; overflow: hidden; position:relative">
 
     <div style="width: 500px; height: 400px; background-color: white; border-radius: 10px;

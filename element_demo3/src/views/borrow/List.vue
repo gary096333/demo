@@ -19,18 +19,18 @@
     <!--tableData是數組-->
     <!--    渲染樹狀資料時，必須要指定 row-key-->
 
-    <el-table :data="tableData" stripe row-key="id"> <!--    default-expand-all 樹狀資料默認展開-->
+    <el-table :data="tableData" stripe > <!--    default-expand-all 樹狀資料默認展開-->
       <el-table-column prop="id" label="編號" align="center" width="50px"></el-table-column>
-      <el-table-column prop="bookName" label="圖書名稱"></el-table-column>
-      <el-table-column prop="bookNo" label="圖書標準碼"></el-table-column>
-      <el-table-column prop="userNo" label="會員碼"></el-table-column>
-      <el-table-column prop="userName" label="用戶名稱"></el-table-column>
-      <el-table-column prop="userPhone" label="用戶聯繫方式"></el-table-column>
-      <el-table-column prop="score" label="所用積分"></el-table-column>
+      <el-table-column prop="bookName" label="圖書名稱" align="center"></el-table-column>
+      <el-table-column prop="bookNo" label="圖書標準碼"  width="105" align="center"></el-table-column>
+      <el-table-column prop="userNo" label="會員碼" align="center"></el-table-column>
+      <el-table-column prop="userName" label="用戶名稱" width="60" align="center"></el-table-column>
+      <el-table-column prop="userPhone" label="用戶聯繫方式" width="105" align="center" ></el-table-column>
+      <el-table-column prop="score" label="所用積分" width="60" align="center"></el-table-column>
       <el-table-column prop="status" label="借出狀態"></el-table-column>
-      <el-table-column prop="days" label="借出天數"></el-table-column>
-      <el-table-column prop="createtime" label="借出日期" width="90px"></el-table-column>
-      <el-table-column prop="returnDate" label="歸還日期"></el-table-column>
+      <el-table-column prop="days" label="借出天數" width="60" align="center"></el-table-column>
+      <el-table-column prop="createtime" label="借出日期" width="90" ></el-table-column>
+      <el-table-column prop="returnDate" label="歸還日期" width="90"></el-table-column>
 
       <!--      還書提醒狀態顯示-->
       <el-table-column prop="note" label="過期提醒">
@@ -46,7 +46,7 @@
       <!--          scope.row就是當前行數據-->
       <!--         二次確認還書(包含slot="reference")-->
       <!--      v-if="scope.row.status === '已借出'" 當為'已借出'還書按鈕才出現-->
-      <el-table-column label="管理">
+      <el-table-column label="管理" align="center">
         <template v-slot="scope">
           <el-popconfirm title="確認還書嗎？" @confirm="returnBooks(scope.row)" v-if="scope.row.status === '已借出'">
             <el-button type="primary" slot="reference">還書</el-button>

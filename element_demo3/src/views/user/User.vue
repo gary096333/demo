@@ -23,13 +23,12 @@
       <el-table-column prop="account" label="帳戶積分" width="100" align="center"></el-table-column>
 
       <!--          禁用功能-->
-      <!--          changeStatus 方法-->
+      <!--          changeStatus 方法 @change="changeStatus(scope.row)"-->
       <!--diabled 不能修改，但能看見-->
       <el-table-column label="狀態" width="50">
         <template v-slot="scope">
-          <el-switch v-model="scope.row.status" disabled @change="changeStatus(scope.row)" active-color="#13ce66"
+          <el-switch  v-model="scope.row.status"  disabled  active-color="#13ce66"
             inactive-color="#ff4949">
-
           </el-switch>
 
         </template>
@@ -85,10 +84,10 @@
       <el-form :model="form" label-width="100 px" ref="ruleForm" :rules="rules"><!-- :model  ref  :rules (校驗 1)-->
 
         <el-form-item label="當前帳戶積分" prop="account"> <!-- prop="變量名稱" (校驗 3)-->
-          <el-input disabled v-model="form.account" autocomplete="off"></el-input> <!-- show-password 隱藏密碼-->
+          <el-input disabled v-model="form.account" autocomplete="off"></el-input> 
         </el-form-item>
         <el-form-item label="積分" prop="score"> <!-- prop="變量名稱" (校驗 3)-->
-          <el-input v-model="form.score" autocomplete="off"></el-input> <!-- show-password 隱藏密碼-->
+          <el-input v-model="form.score" autocomplete="off"></el-input> 
         </el-form-item>
 
       </el-form>
@@ -157,6 +156,7 @@ export default {
   created() {
     this.load()
   },
+  
 
 
   methods: {
@@ -168,8 +168,18 @@ export default {
       }).then(res => {    //res是名稱，為後端Result的對象
 
         if (res.code === '200') {
+          
           this.tableData = res.data.list
           this.total = res.data.total
+
+           // 更新status值
+          this.tableData.forEach(item => {
+            if (item.account >= 0) {
+              item.status = true;
+            } else {
+              item.status = false;
+            }
+          })
         }
 
       })
@@ -236,30 +246,31 @@ export default {
 
     },
 
-    //禁用帳戶
-    changeStatus(row) { //row包含更改後的信息
+    // //禁用帳戶
+    // changeStatus(row) { //row包含更改後的信息
 
 
-      //res是名稱，為後端Result的對象
-      //將數據傳到row對象，row再向後台發送
-      request.put('/user/update', row).then(res => {
-        if (res.code === '200') {
-          if (row.status === true) {
-            this.$notify.info('禁用取消')
-            this.load() //更新成功後重新整理介面
-          }
-          else {
-            this.$notify.info('禁用成功')
-            this.load() //更新成功後重新整理介面
-          }
-        }
-        else {
-          this.$notify.error(res.msg)//將後台錯誤返出來
-        }
-      })
+    //   //res是名稱，為後端Result的對象
+    //   //將數據傳到row對象，row再向後台發送
+    //   request.put('/user/update', row).then(res => {
+    //     if (res.code === '200') {
+
+    //       if (row.status === true) {
+    //         this.$notify.info('禁用取消')
+    //         this.load() //更新成功後重新整理介面
+    //       }
+    //       else {
+    //         this.$notify.info('禁用成功')
+    //         this.load() //更新成功後重新整理介面
+    //       }
+    //     }
+    //     else {
+    //       this.$notify.error(res.msg)//將後台錯誤返出來
+    //     }
+    //   })
 
 
-    }
+    // }
 
 
 

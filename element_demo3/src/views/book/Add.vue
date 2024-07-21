@@ -31,7 +31,7 @@
         <el-input v-model="form.publisher" placeholder="請輸入出版社"></el-input>
       </el-form-item>
 
-      <el-form-item label="分類" prop="category">
+      <el-form-item label="分類">
         <el-cascader
         :props="{value: 'name', label: 'name'}"
         v-model="form.categories"
