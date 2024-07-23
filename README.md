@@ -11,11 +11,14 @@
 帳號：test
 密碼：123
 ```
-(working....)
-- [x] 登入
-- [x] 登出
-- [x] 產品列表
-...
+- [x] 登入/登出
+- [x] 首頁
+- [x] 會員管理:添加、搜索/重置、編輯、刪除、充值、禁用帳戶(當積分<0)
+- [x] 管理員管理:添加、搜索/重置、編輯、刪除、修改密碼、禁用帳戶
+- [x] 圖書分類管理:添加、搜索/重置、編輯、刪除、添加/編輯/刪除二級分類
+- [x] 圖書管理:添加(上傳封面、分類添加)、搜索/重置、編輯、刪除
+- [x] 借書管理:借書添加、搜索/重置、刪除、顯示借書狀態、還書
+- [x] 還書管理:搜索/重置、刪除
 
 ## 項目預覽
 |<img src = "https://github.com/gary096333/test/blob/master/%E5%9C%96%E6%9B%B8%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1.png">|<img src="https://github.com/gary096333/test/blob/master/login.png">|<img src="https://github.com/gary096333/test/blob/master/userList.png" >|
