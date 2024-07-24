@@ -45,9 +45,42 @@ IDE：IntelliJ IDEA 2023、VSCode
 ```bash
 git clone https://github.com/gary096333/demo.git
 ```
+>**本地運行使用localhost文件夾**
+
+<br/>
+
 2、修改配置文件
-1）創建數據庫 將文件夾中的 mydatabase-202406300754.sql 文件導入數據庫。
-2) element_demo3/src/utils/request.js 更改baseURL路徑
+
+(1)創建數據庫 將文件夾中的 mydatabase-202406300754.sql 文件導入數據庫。
+(2)更改application.yml檔中資料庫配置，於localhost/springboot/src/main/resources/application.yml路徑下
+
+<br/>
+
+3、啟動項目
+
+- **啟動客戶端**：進入 localhost/element_demo3 文件夾，運行下面命令
+
+```
+npm install // 安裝依賴
+
+npm run serve // 啟動前端項目
+```
+- **啟動服務端**：進入 localhost/springboot 文件夾，運行下面命令
+
+```
+mvn spring-boot:run // 啟動後端項目
+```
+>**需安裝[maven](https://maven.apache.org/download.cgi)**
+
+<br/>
+
+
+
+
+
+
+
+
 
 
 
