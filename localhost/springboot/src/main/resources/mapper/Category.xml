@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gary.springboot.mapper.CategoryMapper">
+
+
+
+    <select id="list" resultType="com.gary.springboot.entity.Category">
+        select *from category order by id desc
+
+    </select>
+
+
+
+
+
+    <!--樹狀數據-->
+    <!--    column是數據庫字段名稱、property是Category類中的實現類變量名稱-->
+    <resultMap id="categoryMap" type="com.gary.springboot.entity.Category">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+        <result column="pid" property="pid"/>
+        <result column="createtime" property="createtime"/>
+        <result column="updatetime" property="updatetime"/>
+        <!--    因數據庫沒有children字段所以使用數據庫中id查詢-->
+        <collection property="children" column="id" ofType="com.gary.springboot.entity.Category" select="selectByPid"/>
+    </resultMap>
+
+    <!--    查詢子級，條件子級pid是否等於傳入的id-->
+    <select id="selectByPid" resultType="com.gary.springboot.entity.Category">
+        select * from category where pid=#{id}
+        order by id desc
+    </select>
+
+    <!--    resultMap對應以上categoryMap-->
+    <select id="listByCondition" resultMap="categoryMap">
+
+        select c1.* from category c1 left join category c2 on c1.id =c2.pid        <!--自關聯查詢，動態:假如前端沒輸入值，會執行查詢全部數據。-->
+        <where>
+            isnull(c1.pid)              <!--樹狀數據，父級pid都是空的，保證一級分類(父級)pid是null值(避免子級被查詢並顯示兩次)-->
+            <if test="name != null and name !=''">
+                <!--      將可通過一級或二級name去搜索-->
+                and(c1.name like concat('%',#{name},'%') or c2.name like concat('%',#{name},'%'))
+            </if>
+        </where>
+        <!--       去除重複數據，避免產生笛卡爾-->
+        group by c1.id
+                <!--           根據id遞減排序(新的資料在上面)-->
+        order  by c1.id desc
+
+    </select>
+
+
+
+
+
+
+
+    <!--Post新增-->
+    <insert id="save">
+        insert into category(name,remark,pid) values(#{name},#{remark},#{pid})
+    </insert>
+
+    <!--修改-->
+    <select id="getById" resultType="com.gary.springboot.entity.Category">
+        select * from category where id=#{id}
+    </select>
+
+
+    <!--修改-->
+    <update id="updateById">
+        update category set name=#{name}, remark=#{remark}, updatetime=#{updatetime} where id=#{id}
+    </update>
+
+
+    <!--刪除-->
+    <delete id="deleteById">
+        delete from category where id=#{id}
+    </delete>
+
+
+</mapper>

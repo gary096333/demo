@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gary.springboot.mapper.AdminMapper">
+
+
+
+    <select id="list" resultType="com.gary.springboot.entity.Admin">
+        select *from admin order by id desc
+
+    </select>
+
+    <select id="listByCondition" resultType="com.gary.springboot.entity.Admin">
+
+        select * from admin <!--模糊查詢，動態:假如前端沒輸入值，會執行查詢全部數據。-->
+        <where>
+            <if test="username != null and username !=''">
+                username like concat('%',#{username},'%')
+            </if>
+            <if test="phone != null and phone !=''">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="email != null and email !=''">
+              and  email like concat('%',#{email},'%')
+            </if>
+        </where>
+        
+        order  by id desc
+
+    </select>
+
+    <!--Post新增-->
+    <insert id="save">
+        insert into admin(username,password,phone,email)
+        values(#{username},#{password},#{phone},#{email})
+    </insert>
+
+    <!--修改-->
+    <select id="getById" resultType="com.gary.springboot.entity.Admin">
+        select * from admin where id=#{id}
+    </select>
+
+
+    <!--修改-->
+    <update id="updateById">
+        update admin set username=#{username}, phone=#{phone}, email=#{email}, updatetime=#{updatetime}, status=#{status} where id=#{id}
+    </update>
+
+
+    <!--刪除-->
+    <delete id="deleteById">
+        delete from admin where id=#{id}
+    </delete>
+
+    
+
+    <!--登入 查詢-->
+    <select id="getByUserName" resultType="com.gary.springboot.entity.Admin">
+        select * from admin where username=#{username}
+    </select>
+
+
+
+
+
+    <!--    修改密碼-->
+    <update id="updatePassword">
+        update admin set password=#{newPass} where password=#{password} and username=#{username}
+    </update>
+
+
+
+
+</mapper>
+
