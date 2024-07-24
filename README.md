@@ -31,7 +31,10 @@
 
 ### 前端
 - Vue、Axios、Element UI、Vue-router
-
+### 後端
+- SpringBoot 、 MyBatis 、 Maven 、 MySQL 、 Hutool、Lombok、pagehelper
+### 部屬
+- AWS雲端虛擬機(EC2服務部屬)
 
 
 ## 	:white_check_mark: 項目預覽
