@@ -24,13 +24,34 @@
 |<img src = "https://github.com/gary096333/test/blob/master/%E5%9C%96%E6%9B%B8%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1.png">|<img src="https://github.com/gary096333/test/blob/master/login.png">|<img src="https://github.com/gary096333/test/blob/master/userList.png" >|
 |--|--|--|
 
-## 安裝
+## 開發環境
 
-> 請務必依據你的專案來調整內容。
-以下將會引導你如何安裝此專案到你的電腦上。
+JDK： jdk-1.8
 
-Node.js 版本建議為：`16.15.0` 以上
-Node.js 版本建議為：`16.15.0` 以上...
+Maven:v3.8.8
+
+node：v20.11.0
+
+vue:v5.0.8
+
+mysql：mysql-8.0.35
+
+IDE：IntelliJ IDEA 2023、VSCode
+
+### 運行(本地運行)
+
+
+1、下載項目到本地
+```bash
+git clone https://github.com/gary096333/demo.git
+```
+2、修改配置文件
+1）創建數據庫 將文件夾中的 mydatabase-202406300754.sql 文件導入數據庫。
+2) element_demo3/src/utils/request.js 更改baseURL路徑
+
+
+
+
 
 ### 取得專案
 
