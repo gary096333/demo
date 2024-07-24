@@ -89,7 +89,6 @@ mvn spring-boot:run // 啟動後端項目
 ```
 >**需安裝 [maven](https://maven.apache.org/download.cgi) (本項目使用版本 v3.8.8)**
 
-<br/>
 
 
 
@@ -99,49 +98,3 @@ mvn spring-boot:run // 啟動後端項目
 
 
 
-
-
-
-
-### 取得專案
-
-@@ -40,7 +56,7 @@ git clone git@github.com:hsiangfeng/README-Example-Template.git
-cd README-Example-Template
-```
-
-### 安裝相依套件
-### 安裝套件
-
-```bash
-npm install
-@@ -69,6 +85,7 @@ http://localhost:8080/
-```env
-APIPATH= # API 位置
-COUSTOMPATH= # 自訂變數
-...
-```
-
-## 資料夾說明
-@@ -106,6 +123,7 @@ COUSTOMPATH= # 自訂變數
-- 編譯程式碼
-- 執行 ESLint 掃描
-- 執行測試
-...
-
-當專案 merge 到 main 時會自動執行以下動作：
-
-@@ -115,3 +133,15 @@ COUSTOMPATH= # 自訂變數
-- 執行 ESLint 掃描
-- 執行測試
-- 部署到 Github Pages
-...
-
-## 聯絡作者
-
-> ps. 這邊絕對不是業配，而是要適當提供一些方式讓觀看者知道你的聯絡方式，讓他們可以更方便的找到你。
-你可以透過以下方式與我聯絡
-
-- [部落格](https://israynotarray.com/)
-- [Facebook](https://www.facebook.com/israynotarray)
-- [Instagram](https://www.instagram.com/isray_notarray/)
-...
