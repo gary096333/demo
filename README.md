@@ -69,7 +69,8 @@ git clone https://github.com/gary096333/demo.git
 2、修改配置文件
 
 (1)創建數據庫 將文件夾中的 `mydatabase-202406300754.sql` 文件導入數據庫。
-(2)更改'application.yml'檔中資料庫配置，於`localhost/springboot/src/main/resources/application.yml`路徑下
+
+(2)更改`application.yml`檔中資料庫配置，於`localhost/springboot/src/main/resources/application.yml`路徑下
 
 <br/>
 
