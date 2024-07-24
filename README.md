@@ -32,7 +32,7 @@
 ### 前端
 - Vue、Axios、Element UI、Vue-router
 ### 後端
-- SpringBoot 、 MyBatis 、 Maven 、 MySQL 、 Hutool、Lombok、pagehelper
+- SpringBoot 、 MyBatis 、 Maven 、 MySQL 、 Hutool、Lombok、pagehelper、JWT
 ### 部屬
 - AWS雲端虛擬機(EC2服務部屬)
 
